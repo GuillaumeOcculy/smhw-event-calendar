@@ -22,5 +22,11 @@ RSpec.describe Event, type: :model do
       event = Event.new(starts_at: Time.now, ends_at: Time.now + 1, description: 'plop')
       expect(event).to be_valid
     end
+
+    it 'requires ends_at is greater than starts_at' do
+      event = Event.new(starts_at: Time.now + 1.day, ends_at: Time.now, description: 'plop')
+      expect(event).not_to eq(false)
+    end
+
   end
 end
