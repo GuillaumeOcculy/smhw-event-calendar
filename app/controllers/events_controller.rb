@@ -7,9 +7,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to root_path, notice: 'good'
+      flash[:success] = 'Event created'
+      redirect_to root_path
     else
-      redirect_to root_path, notice: 'not good'
+      flash[:danger] = 'Event not created'
+      redirect_to root_path
     end
   end
 

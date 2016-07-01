@@ -38,8 +38,13 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
+    autoprefixer-rails (6.3.6.2)
+      execjs
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.2)
     capybara (2.7.1)
@@ -61,6 +66,10 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    formtastic (3.1.4)
+      actionpack (>= 3.2.13)
+    formtastic-bootstrap (3.1.1)
+      formtastic (>= 3.0)
     fullcalendar-rails (2.8.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -180,9 +189,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.6)
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  formtastic-bootstrap
   fullcalendar-rails
   jbuilder (~> 2.0)
   jquery-rails

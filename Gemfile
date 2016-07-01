@@ -13,6 +13,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'formtastic-bootstrap'
+
 # Calendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
@@ -20,6 +24,7 @@ gem 'momentjs-rails'
 group :test do
   gem 'capybara'
 end
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

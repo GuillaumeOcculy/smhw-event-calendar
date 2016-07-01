@@ -1,16 +1,40 @@
 <h1>Events calendar</h1>
 
-<%= form_for @event do |form| %>
-  <%= form.label "Start date" %>
-  <%= form.datetime_select :starts_at %>
-  <br>
-  <%= form.label "End date" %>
-  <%= form.datetime_select :ends_at %>
-  <br>
-  <%= form.label "Description" %>
-  <%= form.text_field :description %>
-  <br>
-  <%= form.submit %>
+<%= semantic_form_for @event do |f| %>
+  <%= f.input :starts_at, include_blank: false %>
+  <%= f.input :ends_at, include_blank: false %>
+  <%= f.input :description %>
+
+  <%= f.action :submit %>
+
 <% end %>
 
+
+
 <div id='calendar'></div>
+
+
+$(document).ready(function(){
+  <script>
+    $('#calendar').fullCalendar({
+      defaultView: "agendaWeek",
+      firstDay:  <%= Time.zone.now.wday %>,
+      timeFormat: 'H[h](:mm)',
+      allDaySlot: false,
+      height: 'auto',
+      events: [
+          <% @events.each do |event| %>
+          {
+                title: '<%= event.description %>',
+                start: moment('<%= event.starts_at.in_time_zone.iso8601 %>'),
+                end:  moment('<%= event.ends_at.in_time_zone.iso8601 %>'),
+
+                color: '<%= "#FF0000"  %>'
+
+          },
+        <% end %>
+
+      ],
+    })
+  </script>
+});
