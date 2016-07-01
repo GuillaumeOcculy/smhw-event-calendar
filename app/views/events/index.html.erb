@@ -1,21 +1,25 @@
-<h1>Events calendar</h1>
+<h1 class='text-center'>Events calendar</h1>
 
 <%= semantic_form_for @event do |f| %>
   <%= f.input :starts_at, include_blank: false %>
   <%= f.input :ends_at, include_blank: false %>
   <%= f.input :description %>
 
-  <%= f.action :submit %>
+  <div class="row text-center">
+    <%= f.actions do %>
+      <%= f.submit "Save", class: 'btn btn-lg btn-primary btn-block' %>
+    <% end %>
+  </div>
+
 
 <% end %>
-
 
 
 <div id='calendar'></div>
 
 
-$(document).ready(function(){
-  <script>
+<script>
+  $(document).ready(function(){
     $('#calendar').fullCalendar({
       defaultView: "agendaWeek",
       firstDay:  <%= Time.zone.now.wday %>,
@@ -36,5 +40,5 @@ $(document).ready(function(){
 
       ],
     })
-  </script>
-});
+  });
+</script>
